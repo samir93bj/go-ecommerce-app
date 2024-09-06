@@ -1,9 +1,16 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	config "go-ecommerce-app/configs"
+	"go-ecommerce-app/internal/api"
+)
 
 func main() {
-	app := fiber.New()
+	config, err := config.SetupEnv()
 
-	app.Listen("localhost:3000")
+	if err != nil {
+		panic(err)
+	}
+
+	api.StartServer(config)
 }
