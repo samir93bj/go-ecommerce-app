@@ -1,6 +1,10 @@
 package service
 
-import "go-ecommerce-app/internal/domain"
+import (
+	"go-ecommerce-app/internal/domain"
+	"go-ecommerce-app/internal/dto"
+	"log"
+)
 
 type UserService struct {
 }
@@ -11,8 +15,9 @@ func (s *UserService) FindUserByEmail(email string) (*domain.User, error) {
 	return nil, nil
 }
 
-func (s *UserService) SingUp(input any) (string, error) {
+func (s *UserService) SingUp(input dto.UserRegister) (string, error) {
 	// Implement the logic to create a user
+	log.Println(input)
 
 	return "", nil
 }
